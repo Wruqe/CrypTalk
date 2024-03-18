@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-weight: 400;
+  overflow-x: hidden;
+  background-color: white !important;
+  color: black !important;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+nav.navbar {
+  padding: 20px;
+  width: 100%;
+  top: 0;
+  z-index: 9999;
+  transition: 0.32 ease-in-out;
+}
