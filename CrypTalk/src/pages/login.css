@@ -1,0 +1,39 @@
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container {
+    background-color:darkslategrey;
+    color: white;
+    margin-top: 20px;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+  
+  @media screen and (max-width: 1000px) {
+    .form_container {
+        width: 45%;
+    }
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .form_container {
+        width: 65%;
+    }
+  }

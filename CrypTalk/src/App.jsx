@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import Login from './login.jsx'
+import Signup from './signup.jsx'
 import BasicExample from './components/Nav';
 import "bootstrap/dist/css/bootstrap.min.css";
 import LiCoins from './components/coins'; // Assuming LiCoins.js is the correct file name
