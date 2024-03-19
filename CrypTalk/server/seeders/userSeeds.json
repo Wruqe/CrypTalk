@@ -1,0 +1,59 @@
+[
+    {
+      "username": "Brian Kernighan",
+      "thoughts": ["AWK is a powerful text processing language.", "AMPL is a high-level modeling language.", "Unix philosophy emphasizes the use of small, modular tools."]
+    },
+    {
+      "username": "Max Kanat-Alexander",
+      "thoughts": ["Java is a popular programming language known for its portability.", "Perl emphasizes practicality and ease of use.", "Apache is a widely-used web server software.", "Python is known for its simplicity and readability."]
+    },
+    {
+      "username": "Amiko",
+      "thoughts": ["NodeJS allows for server-side JavaScript programming.", "MySQL is a popular relational database management system.", "MongoDB is a flexible NoSQL database.", "React is a JavaScript library for building user interfaces.", "CSS-in-JS allows for styling components with JavaScript."]
+    },
+    {
+      "username": "Kent Beck",
+      "thoughts": [
+        "Test-Driven Development (TDD) is a software development process that relies on writing tests before writing code.",
+        "Extreme Programming (XP) emphasizes customer satisfaction and team collaboration.",
+        "Software Design Patterns provide reusable solutions to common problems in software design.",
+        "JUnit is a popular testing framework for Java."
+      ]
+    },
+    {
+      "username": "Edward V. Berard",
+      "thoughts": ["Object-Oriented Design focuses on organizing software into objects and classes."]
+    },
+    {
+      "username": "Alan Kay",
+      "thoughts": [
+        "Graphical User Interface (GUI) Design involves designing interfaces for software applications.",
+        "Jazz Guitar is a genre of music known for its improvisation and complexity.",
+        "Education is essential for personal and societal development."
+      ]
+    },
+    {
+      "username": "C.A.R. Hoare",
+      "thoughts": ["Algorithms are step-by-step procedures for solving problems.", "Quicksort is an efficient sorting algorithm.", "Hoare Logic is a formal system for reasoning about computer programs."]
+    },
+    {
+      "username": "David Thomas",
+      "thoughts": ["Authors play a vital role in sharing knowledge and storytelling.", "Code Kata are exercises for practicing coding skills.", "Ruby is a dynamic programming language known for its simplicity and productivity.", "Pragmatic Programming emphasizes practicality and efficiency."]
+    },
+    {
+      "username": "Donald Knuth",
+      "thoughts": ["TeX Computer Typesetting is a system for typesetting documents with high-quality typography.", "Algorithms are essential for solving computational problems.", "Authors contribute to the dissemination of knowledge."]
+    },
+    {
+      "username": "Lernantino",
+      "thoughts": [
+        "JavaScript is a versatile programming language used for web development.",
+        "CSS defines the presentation of HTML elements on web pages.",
+        "HTML provides the structure for web pages.",
+        "Design Systems help maintain consistency and efficiency in UI/UX design.",
+        "Typescript is a statically typed superset of JavaScript.",
+        "Progressive Web Apps (PWAs) offer a native app-like experience on the web."
+      ]
+    }
+  ]
+  
