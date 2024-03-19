@@ -14,7 +14,7 @@ function Login() {
                     <input type='password' placeholder='Enter Password' className='form-control' />
                 </div>
                 <div className='mb-2'>
-                    <input type='checkbox' placeholder= className='custom-control custom-checkbox' id='check'/>
+                    <input type='checkbox' className='custom-control custom-checkbox' id='check'/>
                     <label htmlFor='check' className='custom-input-label'>Remember Me</label>
                 </div>
                 <div className='d-grid'><button>Log In</button></div>
