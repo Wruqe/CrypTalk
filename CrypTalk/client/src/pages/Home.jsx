@@ -3,7 +3,7 @@ import '../App.css';
 import BasicExample from '../components/Nav';
 import "bootstrap/dist/css/bootstrap.min.css";
 import LiCoins from '../components/coins'; // Assuming LiCoins.js is the correct file name
-import ThoughtList from '../components/ThoughtList';
+import ThoughtList from '../components/thoughtList';
 
 export default function Home() {
   const [coins, setCoins] = useState([]);
