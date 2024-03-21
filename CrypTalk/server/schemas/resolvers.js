@@ -1,16 +1,8 @@
 // Import the User model
-const { User } = require('../models');
+const { User, Thought } = require('../models');
 
 const resolvers = {
   Query: {
-    // Resolver for querying all users
-    users: async () => {
-      try {
-        return await User.find();
-      } catch (error) {
-        throw new Error("Failed to fetch users");
-      }
-    },
 
     // Resolver for querying a single user by ID
     user: async (parent, { userId }) => {
@@ -20,6 +12,27 @@ const resolvers = {
         throw new Error("Failed to fetch user");
       }
     },
+ 
+    thoughts: async (parent, {username}) => {
+      try {
+        if (username){
+          return await Thought.find({username});
+        }
+        return await Thought.find({});
+      } catch (error) {
+        throw new Error("Failed to fetch Thoughts");
+
+      }
+    },
+
+    thought: async (parent, { thoughtId }) => {
+      try {
+        return await Thought.findById(thoughtId);
+      } catch (error) {
+        throw new Error("Failed to fetch thought");
+      }
+    },
+
   },
 
   Mutation: {
