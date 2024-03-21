@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import ThoughtBlog from '../ThoughtBlog';
+import ThoughtBlog from '../thoughtBlog';
 import { useDispatch, useSelector } from 'react-redux';
 import { RENDER_THOUGHTS } from '../utils/actions';
 import { useQuery } from '@apollo/client';
