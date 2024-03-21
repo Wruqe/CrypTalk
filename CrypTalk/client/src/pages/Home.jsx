@@ -3,7 +3,7 @@ import '../App.css';
 import BasicExample from '../components/Nav';
 import "bootstrap/dist/css/bootstrap.min.css";
 import LiCoins from '../components/coins'; // Assuming LiCoins.js is the correct file name
-
+import ThoughtList from '../components/ThoughtList';
 
 export default function Home() {
   const [coins, setCoins] = useState([]);
@@ -40,6 +40,7 @@ export default function Home() {
       <BasicExample />
       <h2 className='text-center mb-5 mt-5' >Crypto Tokens</h2>
       <LiCoins coins={coins} />
+      <ThoughtList />
     </div>
   );
 }

@@ -1,20 +1,22 @@
 {
-    "name": "mern-shopping",
-    "version": "1.0.0",
-    "description": "",
-    "main": "server/server.js",
-    "scripts": {
-      "start": "node server --ignore client",
-      "develop": "concurrently \"cd server && pnpm run start\" \"cd client && pnpm run dev\"",
-      "install": "cd server && pnpm i && cd ../client && pnpm i",
-      "seed": "cd server && pnpm run seed",
-      "build": "cd client && pnpm run build"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-      "concurrently": "^5.1.0"
-    }
+  "name": "mern-shopping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server --ignore client",
+    "develop": "concurrently \"cd server && pnpm run start\" \"cd client && pnpm run dev\"",
+    "install": "cd server && pnpm i && cd ../client && pnpm i",
+    "seed": "cd server && pnpm run seed",
+    "build": "cd client && pnpm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  },
+  "dependencies": {
+   
   }
-  
+}
