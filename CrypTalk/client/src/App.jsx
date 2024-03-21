@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BlogList from "./pages/Blog";
 import store from "./components/utils/store";
 import Home from "./pages/Home";
+import BasicExample from "./components/Nav";
 import { Provider } from "react-redux";
 import {
   ApolloClient,
@@ -36,10 +38,13 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div>
+        <BasicExample />
         <Provider store={store}>
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/blogs" element={<BlogList />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
           </BrowserRouter>
         </Provider>
