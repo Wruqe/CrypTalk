@@ -1,27 +1,31 @@
+import React, { useState } from 'react';
 
 
-export default function Login() {
+function LoginContainer() {
+    const [showSignUp, setShowSignUp] = useState(false);    const handleSignUpClick = () => {
+        setShowSignUp(!showSignUp);
+    };
+
     return (
-        <div className='login'>
-            <form>
-                <h3>Log In</h3>
-                <div className='mb-2'>
-                    <label htmlFor='email'>Email</label>
-                    <input type='email' placeholder='Enter Email' className='form-control' />
+        <div>
+            <button onClick={handleSignUpClick}>{showSignUp ? 'Login' : 'Sign Up'}</button>
+            {showSignUp ? (
+                <div id='signup'>
+                    {/* Sign-up container */}
+                    <input type="text" placeholder="Enter your email" />
+                    <input type="password" placeholder="Enter your password" />
+                    <button>Sign Up</button>
                 </div>
-                <div className='mb-2'>
-                    <label htmlFor='password'>Password</label>
-                    <input type='password' placeholder='Enter Password' className='form-control' />
+            ) : (
+                <div id='login'>
+                    {/* Login container */}
+                    <input type="text" placeholder="Enter your email" />
+                    <input type="password" placeholder="Enter your password" />
+                    <button>Login</button>
                 </div>
-                <div className='mb-2'>
-                    <input type='checkbox' className='custom-control custom-checkbox' id='check'/>
-                    <label htmlFor='check' className='custom-input-label'>Remember Me</label>
-                </div>
-                <div className='d-grid'><button>Log In</button></div>
-                <p className='forgot-password text-right'>
-                    Forgot <a href='#'>password?</a>
-                </p>
-         </form>
-         </div>
-                 )
-                }
+            )}
+        </div>
+    );
+}
+
+export default LoginContainer;
