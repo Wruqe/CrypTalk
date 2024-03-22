@@ -1,17 +1,70 @@
-const apiKey = "pub_4029541552aa06e0abb08fc93992af4e5a447";
-const apiUrl = `https://newsdata.io/api/1/news?apikey=${apiKey}`;
+import { useState, useEffect } from 'react';
 
-fetch(apiUrl)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    // Process the data as needed
-    console.log(data);
-  })
-  .catch(error => {
-    console.error('There was a problem with the fetch operation:', error);
-  });
+export default function News() {
+  const [news, setNews] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [selectedArticle, setSelectedArticle] = useState(null);
+
+  const apiKey = "pub_40297bd6b06608e4a11a311d7b0c57de45b86";
+  const query = "cryptocurrency";
+  const apiUrl = `https://newsdata.io/api/1/news?apikey=${apiKey}&q=${query}&language=en`;
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log(data); // Logging the fetched data
+        setNews(data.results || []);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
+
+    fetchNews();
+  }, []); // Runs once on component mount
+
+  const handleTitleClick = (index) => {
+    setSelectedArticle(index === selectedArticle ? null : index);
+  };
+
+  if (loading) {
+    return <div className="loading">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="error">Error: {error.message}</div>;
+  }
+
+  return (
+    <div className="news-container">
+      <h1>Crypto News</h1>
+      <ul className="news-list">
+        {news.map((article, index) => (
+          <li key={index} className="news-item">
+            <h2 className="news-title" onClick={() => handleTitleClick(index)}>
+              {article.title}
+            </h2>
+            {selectedArticle === index && (
+              <>
+                {article.image && (
+                  <a href={article.url} target="_blank" rel="noopener noreferrer" className="news-image-link">
+                    <img src={article.image} alt={article.title} className="news-image" />
+                  </a>
+                )}
+                <p className="news-description">{article.description}</p>
+              </>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
