@@ -1,4 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 export default function News() {
   const [news, setNews] = useState([]);
@@ -15,7 +18,7 @@ export default function News() {
       try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
         const data = await response.json();
         console.log(data); // Logging the fetched data
@@ -43,28 +46,47 @@ export default function News() {
   }
 
   return (
-    <div className="news-container">
-      <h1>Crypto News</h1>
-      <ul className="news-list">
-        {news.map((article, index) => (
-          <li key={index} className="news-item">
-            <h2 className="news-title" onClick={() => handleTitleClick(index)}>
-              {article.title}
-            </h2>
-            {selectedArticle === index && (
-              <>
-                {article.image && (
-                  <a href={article.url} target="_blank" rel="noopener noreferrer" className="news-image-link">
-                    <img src={article.image} alt={article.title} className="news-image" />
-                  </a>
+    <Container className="news-container" fluid>
+      <Row>
+        <Col>
+          <h1>Crypto News</h1>
+          <ul className="news-list">
+            {news.map((article, index) => (
+              <li key={index} className="news-item">
+                <h2
+                  className="news-title"
+                  onClick={() => handleTitleClick(index)}
+                >
+                  {article.title}
+                </h2>
+                {selectedArticle === index && (
+                  <Row>
+                    <Col></Col>
+                    <Col>
+                      {article.image_url && (
+                        <a
+                          href={article.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="news-image-link"
+                        >
+                          <img
+                            src={article.image_url}
+                            alt={article.title}
+                            className="news-image"
+                          />
+                        </a>
+                      )}
+                      <p className="news-description">{article.description}</p>
+                    </Col>
+                    <Col></Col>
+                  </Row>
                 )}
-                <p className="news-description">{article.description}</p>
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
+              </li>
+            ))}
+          </ul>
+        </Col>
+      </Row>
+    </Container>
   );
 }
-
