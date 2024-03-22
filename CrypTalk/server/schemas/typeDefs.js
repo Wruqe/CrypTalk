@@ -3,6 +3,7 @@ type User {
   _id: ID
   username: String
   thoughts: [Thought]
+  friends: [User]
 }
 
 type Thought {
@@ -29,6 +30,8 @@ type Mutation {
   removeUser(userId: ID!): User
   removeThought(userId: ID!): Thought
   updateThought(thoughtId: ID!, thought: ThoughtInput!): Thought
+  login(email: String!, password: String!)
+  signup(username: String!, email: String!, password: String!)
 }
 `;
 

@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_THOUGHTS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import spinner from '../../assets/spinner.gif';
+import ThoughtBlogForm from '../ThoughtBlogForm';
 
 function ThoughtList() {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ function ThoughtList() {
       idbPromise('thoughts', 'get').then((thoughts) => {
         dispatch({
           type: RENDER_THOUGHTS,
-          products: thoughts,
+          thoughts: thoughts,
         });
       });
     }
@@ -34,6 +35,7 @@ function ThoughtList() {
 
   return (
     <div className="my-2">
+      <ThoughtBlogForm />
       <h2>Blogs:</h2>
       {state.thoughts.length ? (
         <div className="flex-row">
