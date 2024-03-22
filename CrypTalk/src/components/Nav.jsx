@@ -1,20 +1,20 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
 
 function BasicExample() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary" >
       <Container>
         <Navbar.Brand href="#home">CrypTalk</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/blogs">Blogs</Nav.Link>
-            <Nav.Link href="/profile">Profile</Nav.Link>
-            <Nav.Link href="/trade">Trade</Nav.Link>
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">Blogs</Nav.Link>
+            <Nav.Link href="#link">Profile</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -26,15 +26,13 @@ function BasicExample() {
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav className="ms-auto">
-              <Nav.Link href="/login">Login</Nav.Link>
-              <Nav.Link href="/signin">Signin</Nav.Link>
-            </Nav>
           </Nav>
+          <Nav>
+        </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
+    );
 }
-
-export default BasicExample;
+  
+  export default BasicExample;

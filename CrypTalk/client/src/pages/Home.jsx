@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import '../App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import LiCoins from '../components/coins'; // Assuming LiCoins.js is the correct file name
 
@@ -35,7 +34,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="App">
+    <div>
       <h2 className='text-center mb-5 mt-5' >Crypto Tokens</h2>
       <LiCoins coins={coins} />
     </div>
