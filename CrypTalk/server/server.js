@@ -26,7 +26,6 @@ const startApolloServer = async () => {
     app.get('*', (req, res) => {
       res.sendFile(path.join(__dirname, '../client/dist/index.html'));
     });
-  }
   
   app.use('/graphql', expressMiddleware(server));
 
@@ -36,6 +35,7 @@ const startApolloServer = async () => {
       console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
     });
   });
+};
 };
 
 // Call the async function to start the server
