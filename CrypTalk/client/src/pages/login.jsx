@@ -5,11 +5,15 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+
 import { useNavigate } from "react-router-dom";
 
 function LoginContainer() {
   const [showSignUp, setShowSignUp] = useState(false);
   const navigate = useNavigate();
+
+function LoginContainer() {
+  const [showSignUp, setShowSignUp] = useState(false);
   const handleSignUpClick = () => {
     setShowSignUp(!showSignUp);
   };
@@ -23,6 +27,7 @@ function LoginContainer() {
     event.preventDefault();
     console.log("log in submitted");
     navigate("/home");
+
   };
 
   return (
