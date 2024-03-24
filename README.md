@@ -30,7 +30,7 @@ To run the Crypto Blog Site locally, follow these steps:
 Create a `.env` file in the root directory and add necessary environment variables such as database connection string, API keys, etc.
 4. **Start the Development Server:**
 5. **Access the Site:**
-Open your web browser and navigate to `http://localhost:3000` to access the Crypto Blog Site.
+Open your web browser and navigate to `http://localhost:5176` to access the Crypto Blog Site.
 
 ## Contributing
 
