@@ -6,6 +6,12 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
+import { useNavigate } from "react-router-dom";
+
+function LoginContainer() {
+  const [showSignUp, setShowSignUp] = useState(false);
+  const navigate = useNavigate();
+
 function LoginContainer() {
   const [showSignUp, setShowSignUp] = useState(false);
   const handleSignUpClick = () => {
@@ -15,10 +21,13 @@ function LoginContainer() {
   const handleSignUpSubmit = (event) => {
     event.preventDefault();
     console.log("Sign up submitted");
+    navigate("/home");
   };
   const handleLogInSubmit = (event) => {
     event.preventDefault();
     console.log("log in submitted");
+    navigate("/home");
+
   };
 
   return (

@@ -33,6 +33,8 @@ function BasicExample() {
             </Nav>
           </Nav>
         </Navbar.Collapse>
+        <Nav.Link href="/login">Login</Nav.Link>
+        <Nav.Link href="/signup">Sign Up</Nav.Link>
       </Container>
     </Navbar>
   );
