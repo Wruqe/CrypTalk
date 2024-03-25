@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -8,11 +8,9 @@ import Form from "react-bootstrap/Form";
 
 import { useNavigate } from "react-router-dom";
 
-function LoginContainer() {
-  const [showSignUp, setShowSignUp] = useState(false);
-  const navigate = useNavigate();
 
 function LoginContainer() {
+  const navigate = useNavigate();
   const [showSignUp, setShowSignUp] = useState(false);
   const handleSignUpClick = () => {
     setShowSignUp(!showSignUp);
