@@ -6,6 +6,7 @@ export const QUERY_THOUGHTS = gql`
       _id
       username
       thoughtText
+      createdAt
     }
   }
 `;
@@ -16,6 +17,7 @@ export const QUERY_THOUGHT = gql`
       _id
       username
       thoughtText
+      createdAt
     }
   }
 `;

@@ -40,8 +40,9 @@ function ThoughtList() {
           {state.thoughts.map((thought) => (
             <ThoughtBlog
               key={thought._id}
-              _id={thought._id}
               thoughtText={thought.thoughtText}
+              username={thought.username}
+              createdAt={thought.createdAt}
             />
           ))}
         </div>
