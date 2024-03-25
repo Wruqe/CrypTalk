@@ -1,10 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CoinGraph from './coinChart';
 
 function LiCoins({ coins }) {
+  const navigate = useNavigate();
   console.log("Coins data:", coins); // Debugging: Log coins data to console
   return (
     <div className="coin-cards">
@@ -13,7 +15,7 @@ function LiCoins({ coins }) {
           <Col key={index} xs={12} md={6} lg={4} xl={3}>
             <Card style={{ marginBottom: '20px' }}>
               <Card.Body>
-                <Card.Title>
+                <Card.Title onClick={() => handleTitleClick(coin.uuid)} style={{ cursor: 'pointer' }}>
                   {coin.iconUrl && <img src={coin.iconUrl} alt="Coin Icon" style={{ marginRight: '8px', height: '1.5em' }} />}
                   {coin.name}
                 </Card.Title>
@@ -35,6 +37,11 @@ function LiCoins({ coins }) {
       </Row>
     </div>
   );
+
+  
+  function handleTitleClick(coinuuid) {
+    navigate(`/onecoin/${coinuuid}`);
+  }
 }
 
 export default LiCoins;

@@ -1,31 +1,16 @@
 import { useState, useEffect } from 'react'
 import CoinGraph from '../components/coinChart'
 
-export default function OneCoin(props) {
+export default function OneCoin() {
 
-    const [coin, setCoin] = useState({})
+    const [coin, setCoin] = useState({});
 
     useEffect(() => {
-        const baseUrl = "https://api-for-coin" // or something like that
-        const apiKey = process.env.API_KEY
-
-        fetch(baseUrl + props.match.params.id, {
-            method: "GET",
-            headers: {
-                'content-type': 'application/json',
-                'x-access-token': apiKey,
-            }
-        })
+        const id = window.location.pathname.split('/')[2];
+        fetch(`https://api.coinranking.com/v2/coin/${id}`)
             .then(response => response.json())
-            .then(data => {
-                if (data && data.coin) {  // or something like that
-                    setCoin(data.data.coin)
-                }
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-            });
-    }, [props.match.params.id])
+            .then(data => setCoin(data.data.coin))
+    }, []);
 
     return (
         <div>

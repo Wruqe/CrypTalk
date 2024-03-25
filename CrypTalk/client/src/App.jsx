@@ -6,6 +6,7 @@ import News from "./pages/News";
 import ProfilePage from "./pages/profile";
 import BasicExample from "./components/Nav";
 import Trade from "./pages/Trade"; // Import the Trade component
+import OneCoin from "./pages/OneCoin";
 import { Provider } from "react-redux";
 import {
   ApolloClient,
@@ -53,6 +54,7 @@ function App() {
               <Route path="/news" element={<News />} />
               <Route path="/trade" element={<Trade />} /> 
               <Route path="/login" element={<LoginContainer />} />
+              <Route path="/onecoin/:id" element={<OneCoin />} />
             </Routes>
           </BrowserRouter>
         </Provider>
