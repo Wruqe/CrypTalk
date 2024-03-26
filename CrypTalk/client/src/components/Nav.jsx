@@ -1,43 +1,49 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import Auth from "./utils/auth";
 
 function BasicExample() {
-  return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="#home">CrypTalk</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/blogs">Blogs</Nav.Link>
-            <Nav.Link href="/profile">Profile</Nav.Link>
-            <Nav.Link href="/trade">Trade</Nav.Link>
-            <Nav.Link href="/news">News</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav className="ms-auto">
-              <Nav.Link href="/login">Login</Nav.Link>
-              <Nav.Link href="/signin">Signin</Nav.Link>
+  if (Auth.loggedIn()) {
+    return (
+      <Navbar expand="lg" className="bg-body-tertiary">
+        <Container>
+          <Navbar.Brand href="/">CrypTalk</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/blogs">Blogs</Nav.Link>
+              <Nav.Link href="/profile">Profile</Nav.Link>
+              <Nav.Link href="/trade">Trade</Nav.Link>
+              <Nav.Link href="/news">News</Nav.Link>
+              <Nav.Link href="/signout">Sign out</Nav.Link>
+
             </Nav>
-          </Nav>
-        </Navbar.Collapse>
-        <Nav.Link href="/login">Login</Nav.Link>
-        <Nav.Link href="/signup">Sign Up</Nav.Link>
-      </Container>
-    </Navbar>
-  );
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    );
+  } else {
+    return (
+      <Navbar expand="lg" className="bg-body-tertiary">
+        <Container>
+          <Navbar.Brand href="/">CrypTalk</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/news">News</Nav.Link>
+              <Nav className="ms-auto">
+                <Nav.Link href="/login">Login</Nav.Link>
+                <Nav.Link href="/signup">Sign up</Nav.Link>
+              </Nav>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    );
+  }
 }
 
 export default BasicExample;
