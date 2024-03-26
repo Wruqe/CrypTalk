@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import BlogList from "./pages/Blog";
+import AllBlogPosts from "./pages/all-blog-posts";
 import store from "./components/utils/store";
 import Home from "./pages/Home";
 import News from "./pages/News";
@@ -17,7 +17,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import LoginContainer from "./pages/login";
 import './App.css';
-import UserProfile from "./pages/profile";
+import ProfilePage from "./pages/profile";
+import BlogPost from "./pages/blog-post";
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -49,8 +50,9 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/blogs" element={<BlogList />} />
-              <Route path="/profile" element={<UserProfile />} />
+              <Route index path="blogs" element={<AllBlogPosts />} />
+              <Route path="blogs/:blogId" element={<BlogPost />} />
+              <Route path="/profile" element={<ProfilePage />} />
               <Route path="/news" element={<News />} />
               <Route path="/trade" element={<Trade />} /> 
               <Route path="/login" element={<LoginContainer />} />
