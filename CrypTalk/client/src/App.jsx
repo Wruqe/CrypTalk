@@ -4,7 +4,7 @@ import store from "./components/utils/store";
 import Home from "./pages/Home";
 import News from "./pages/News";
 import BasicExample from "./components/Nav";
-import Trade from "./pages/Trade"; // Import the Trade component
+import Trade from "./pages/Trade"; 
 import OneCoin from "./pages/OneCoin";
 import { Provider } from "react-redux";
 import {
