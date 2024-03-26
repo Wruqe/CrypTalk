@@ -15,7 +15,7 @@ function BasicExample() {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/blogs">Blogs</Nav.Link>
               <Nav.Link href="/profile">Profile</Nav.Link>
-              <Nav.Link href="/trade">Trade</Nav.Link>
+              <Nav.Link href="/trade">Price</Nav.Link>
               <Nav.Link href="/news">News</Nav.Link>
               <Nav.Link href="/signout">Sign out</Nav.Link>
 
