@@ -25,10 +25,10 @@ function CryptoPricesPage() {
         }
       );
       const data = await response.json();
-      // Filter out coins without USD price
+      // Filter out coins without price
       const filteredData = data.filter((crypto) => crypto.price_usd !== null);
       setCryptoData(filteredData);
-      setSearchResults(filteredData.slice(0, 25)); // Display only the first 30 coins initially
+      setSearchResults(filteredData.slice(0, 25));
     } catch (error) {
       console.error("Error fetching crypto data:", error);
     }
@@ -39,7 +39,7 @@ function CryptoPricesPage() {
     const filteredResults = cryptoData.filter((crypto) =>
       crypto.name.toLowerCase().includes(event.target.value.toLowerCase())
     );
-    setSearchResults(filteredResults.slice(0, 25)); // Limit search results to 30 coins
+    setSearchResults(filteredResults.slice(0, 25)); 
   };
 
   return (
