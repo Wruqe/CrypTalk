@@ -13,7 +13,7 @@ export default function ThoughtBlogForm() {
     console.log("thoughtSubmitted");
     const thoughtInput = {
       thoughtText: text,
-      username: "Bob",
+      username: "",
     };
     dispatch({
       type: ADD_THOUGHT,
