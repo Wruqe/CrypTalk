@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 
 function CryptoPricesPage() {
+  const navigate = useNavigate();
   const [cryptoData, setCryptoData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -15,15 +17,12 @@ function CryptoPricesPage() {
 
   const fetchCryptoData = async () => {
     try {
-      const apiKey = 'E3DEA31F-7570-413D-8936-E543F0F96506'; 
-      const response = await fetch(
-        "https://rest.coinapi.io/v1/assets",
-        {
-          headers: {
-            "X-CoinAPI-Key": apiKey
-          }
-        }
-      );
+      const apiKey = "E3DEA31F-7570-413D-8936-E543F0F96506";
+      const response = await fetch("https://rest.coinapi.io/v1/assets", {
+        headers: {
+          "X-CoinAPI-Key": apiKey,
+        },
+      });
       const data = await response.json();
       // Filter out coins without price
       const filteredData = data.filter((crypto) => crypto.price_usd !== null);
@@ -39,7 +38,7 @@ function CryptoPricesPage() {
     const filteredResults = cryptoData.filter((crypto) =>
       crypto.name.toLowerCase().includes(event.target.value.toLowerCase())
     );
-    setSearchResults(filteredResults.slice(0, 25)); 
+    setSearchResults(filteredResults.slice(0, 25));
   };
 
   return (
@@ -55,7 +54,9 @@ function CryptoPricesPage() {
               onChange={handleSearchChange}
             />
             {cryptoData.length > 25 && searchTerm === "" && (
-              <p className="text-muted">Use the search bar to find more cryptocurrencies</p>
+              <p className="text-muted">
+                Use the search bar to find more cryptocurrencies
+              </p>
             )}
           </Form.Group>
         </Col>
@@ -65,7 +66,10 @@ function CryptoPricesPage() {
           <ul className="list-unstyled">
             {searchResults.map((crypto, index) => (
               <li key={index} className="mb-3 p-3 border rounded">
-                <strong>{crypto.name} ({crypto.asset_id}):</strong> ${crypto.price_usd}
+                <strong onClick={() => handleTitleClick(crypto.name)}>
+                  {crypto.name} ({crypto.asset_id}):
+                </strong>{" "}
+                ${crypto.price_usd}
               </li>
             ))}
           </ul>
@@ -73,6 +77,25 @@ function CryptoPricesPage() {
       </Row>
     </Container>
   );
+
+  function handleTitleClick(coinName) {
+    const options = {
+      headers: {
+        "x-access-token":
+          "coinranking6e57956122c8e1d1fe9533a5688e8570c3a6c474e4177578",
+      },
+    };
+
+    fetch(
+      `https://api.coinranking.com/v2/search-suggestions?query=${coinName}`,
+      options
+    )
+      .then((response) => response.json())
+      .then((result) => {console.log(result.data.coins[0].uuid)
+        const coinuuid = result.data.coins[0].uuid;
+        navigate(`/onecoin/${coinuuid}`);
+      });
+  }
 }
 
 export default CryptoPricesPage;
