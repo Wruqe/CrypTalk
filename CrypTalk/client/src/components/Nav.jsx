@@ -36,7 +36,6 @@ function BasicExample() {
               <Nav.Link href="/news">News</Nav.Link>
               <Nav className="ms-auto">
                 <Nav.Link href="/login">Login</Nav.Link>
-                <Nav.Link href="/signup">Sign up</Nav.Link>
               </Nav>
             </Nav>
           </Navbar.Collapse>
